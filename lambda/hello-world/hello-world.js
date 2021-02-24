@@ -1,11 +1,9 @@
 const fs = require("fs").promises;
 const path = require("path");
 
-const currentDir = process.env.LAMBDA_TASK_ROOT;
-
 exports.handler = async () => {
   try {
-    const content = await fs.readFile(path.join(currentDir, "data.json"), {
+    const content = await fs.readFile(path.join(__dirname, "data.json"), {
       encoding: "utf-8"
     });
     return {
